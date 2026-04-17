@@ -24,7 +24,7 @@ public class Customer
         }
         else
         {
-            elapsedProcessTime = 0;
+            elapsedProcessTime += 1;
         }
         return items == 0;
     }
