@@ -1,3 +1,5 @@
+package GroceryQueue;
+
 public class Customer
 {
     int beginingItems;

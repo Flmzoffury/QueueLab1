@@ -1,3 +1,5 @@
+package GroceryQueue;
+
 public class Node<T>
 {
     private T data;

@@ -1,3 +1,5 @@
+package GroceryQueue;
+
 import java.util.Scanner; import java.util.Random;
 
 public class Checkout {
@@ -124,7 +126,7 @@ public class Checkout {
         }
 
         System.out.println("___________________________________________________________________________________________________");
-        System.out.println("Customer statistics:");
+        System.out.println("GroceryQueue.Customer statistics:");
         System.out.println("___________________________________________________________________________________________________");
         //Number of customers per hour for each line and overall
         System.out.println("Average customers per hour at the super express counter: \t" + ((double)totalCustomers[0])/((double)maxSimTime)*3600.0);
