@@ -2,14 +2,26 @@ package GroceryQueue;
 
 public class Customer
 {
-    int beginingItems;
+    /**
+     * The items the customer came to the line with
+     */
+    int beginningItems;
+    /**
+     * How many items the customer still needs to check out
+     */
     int items;
+    /**
+     * Time of arrival for the customer
+     */
     int arrivalTime;
+    /**
+     * The amount of time the customer has been processed at the counter
+     */
     int elapsedProcessTime;
 
     public Customer(int inputItems, int inputTime)
     {
-        beginingItems = inputItems;
+        beginningItems = inputItems;
         items = inputItems;
         arrivalTime = inputTime;
         elapsedProcessTime = 0;
@@ -20,6 +32,10 @@ public class Customer
         return items;
     }
 
+    /**
+     * Progresses checkout for the customer, removes an item if the elapsed time is a multiple of 5
+     * @return true if the customer is done checking out, false otherwise
+     */
     public boolean checkoutItem()
     {
         if (items > 0 && elapsedProcessTime > 0 && elapsedProcessTime%5 == 0)
@@ -46,6 +62,6 @@ public class Customer
 
     public int getBeginingItems()
     {
-        return beginingItems;
+        return beginningItems;
     }
 }

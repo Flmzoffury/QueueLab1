@@ -3,10 +3,15 @@ package GroceryQueue;
 import java.util.Scanner; import java.util.Random;
 
 public class Checkout {
+    //Queues
     Queue<Customer> superExpress;
     Queue<Customer>[] expressCounters;
     Queue<Customer>[] standardCounters;
+
+    //Constant queue length
     final int NUM_EXPRESS_COUNTERS = 2;
+
+    //Random object
     Random rng = new Random();
 
     //User input attributes
@@ -25,6 +30,7 @@ public class Checkout {
     int averageWaitTimeTotal; //The average wait time across all counters
     int currentTime;
 
+    //Checkout constructor
     public Checkout() {
         superExpress = new Queue<Customer>("Super Express Counter ");
 
@@ -32,8 +38,12 @@ public class Checkout {
         for (int i = 0; i < NUM_EXPRESS_COUNTERS; i++) {
             expressCounters[i] = new Queue<Customer>("Express Counter " + i);
         }
+
+        //Prompting data for the simulation
         //autoPrompt();
         promptData();
+
+        //Construct data based on prompts
         standardCounters = new Queue[numStandLines];
         for (int i = 0; i < numStandLines; i++) {
             standardCounters[i] = new Queue<Customer>("Standard Counter " + i);
@@ -47,6 +57,9 @@ public class Checkout {
         averageWaitTimeTotal = 0;
     }
 
+    /**
+     * Takes user input to use for the simulation
+     */
     private void promptData() {
         Scanner textInput = new Scanner(System.in);
 
@@ -80,7 +93,9 @@ public class Checkout {
      */
 
 
-
+    /**
+     * Finds and prints the data collected from the simulation
+     */
     private void printStats()
     {
         int overallFreeTime = 0;
@@ -189,6 +204,7 @@ public class Checkout {
     {
         for (int i = 0; i < maxSimTime; i++) //Time is tracked in seconds.
         {
+            //Track the current time
             currentTime = i;
             //Check for customer arrival -> if a customer arrives add them to the queue they belong in
             checkArrival();
@@ -196,11 +212,14 @@ public class Checkout {
             processQueues();
             //Track Statistics
         }
-
+        //Print the stats collected
         printStats();
     }
 
-    public void checkArrival()
+    /**
+     * Checks if a new customer is arriving
+     */
+    private void checkArrival()
     {
         if (rng.nextInt(3600) + 1 < arrivalRate)
         {
@@ -209,7 +228,11 @@ public class Checkout {
         }
     }
 
-    public void addCustomer(Customer customer)
+    /**
+     * Adds a customer - for checkArrival()
+     * @param customer
+     */
+    private void addCustomer(Customer customer)
     {
         int smallestStandardQueue = 0;
         int lowestStandardSize = standardCounters[0].size();
@@ -255,7 +278,10 @@ public class Checkout {
         }
     }
 
-    public void processQueues()
+    /**
+     * Progresses the checkout for active checkout lines and tracks statistics including free time.
+     */
+    private void processQueues()
     {
         Customer currentCustomer;
         if (superExpress.hasNext())
