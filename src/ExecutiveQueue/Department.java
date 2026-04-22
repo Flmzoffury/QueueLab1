@@ -8,7 +8,7 @@ public class Department
     int size;
     int largestSize;
 
-    public GroceryQueue.LinkedList<Executive> line;
+    private GroceryQueue.LinkedList<Executive> line;
 
     public Department(String inputName)
     {
@@ -55,7 +55,7 @@ public class Department
 
         for (int i = 0; i < line.getSize(); i++)
         {
-            if (this.peek() == searchData)
+            if (this.peek().equals(searchData))
             {
                 found = true;
             }
@@ -99,4 +99,72 @@ public class Department
     {
         return size != 0;
     }
+
+    public String getName()
+    {
+        return deptName;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof Department)
+        {
+            Department temp = (Department) obj;
+            return deptName.equals(temp.getName());
+        }
+        return false;
+    }
+
+    public void remove(String inputExec)
+    {
+        Executive comparisonExec = new Executive(inputExec);
+        if (find(comparisonExec))
+        {
+            int originalSize = line.getSize();
+            for (int i = 0; i < originalSize; i++)
+            {
+                if (this.peek().equals(comparisonExec))
+                {
+                    this.poll();
+                }
+                else
+                {
+                    this.add(this.poll());
+                }
+            }
+        }
+    }
+
+    public void printPayroll()
+    {
+        Executive currentExec;
+        for (int i = 0; i < size; i++)
+        {
+            currentExec = this.poll();
+            this.add(currentExec);
+            System.out.println(currentExec.getName() + ": \t" + ((size-i-1)*5000+40000) + "$");
+
+        }
+    }
+
+    public int getSalary(String execName)
+    {
+        if (!deptName.equals("")) {
+            int salary = 0;
+            Executive currentExec;
+            for (int i = 0; i < size; i++) {
+                currentExec = this.poll();
+                this.add(currentExec);
+
+                if (salary == 0 && currentExec.getName().equals(execName)) {
+                    salary = 40000 + 5000 * (size - i - 1);
+                }
+
+
+            }
+            return salary;
+        }
+        return 0;
+    }
+
 }

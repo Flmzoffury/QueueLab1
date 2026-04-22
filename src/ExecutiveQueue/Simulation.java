@@ -13,10 +13,8 @@ public class Simulation
 
         do
         {
-            System.out.println("Enter a command (enter H for help): ");
-            currentInput = textInput.nextLine();
-            input.take(currentInput);
-        } while (input.take(currentInput));
+            programActive = input.take();
+        } while (programActive);
 
     }
 }

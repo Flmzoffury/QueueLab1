@@ -40,7 +40,6 @@ public class Checkout {
         }
 
         //Prompting data for the simulation
-        //autoPrompt();
         promptData();
 
         //Construct data based on prompts
@@ -77,21 +76,6 @@ public class Checkout {
         maxSimTime = textInput.nextInt() * 60;
 
     }
-
-    /*
-    //Preset input
-    private void autoPrompt()
-    {
-        numStandLines = 2;
-        numSuper = 5;
-        numExp = 7;
-        arrivalRate = 60;
-        maxItems = 10;
-        maxSimTime = 240 * 60;
-    }
-
-     */
-
 
     /**
      * Finds and prints the data collected from the simulation
@@ -230,7 +214,7 @@ public class Checkout {
 
     /**
      * Adds a customer - for checkArrival()
-     * @param customer
+     * @param customer The customer to be added
      */
     private void addCustomer(Customer customer)
     {
