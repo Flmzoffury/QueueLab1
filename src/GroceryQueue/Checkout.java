@@ -125,7 +125,7 @@ public class Checkout {
         }
 
         System.out.println("___________________________________________________________________________________________________");
-        System.out.println("GroceryQueue.Customer statistics:");
+        System.out.println("Customer statistics:");
         System.out.println("___________________________________________________________________________________________________");
         //Number of customers per hour for each line and overall
         System.out.println("Average customers per hour at the super express counter: \t" + ((double)totalCustomers[0])/((double)maxSimTime)*3600.0);
@@ -276,7 +276,7 @@ public class Checkout {
                 superExpress.poll();
                 totalCustomers[0] += 1;
                 totalTimes[0] += currentTime - currentCustomer.getArrivalTime() - currentCustomer.getElapsedProcessTime();
-                totalItems[0] += currentCustomer.getBeginingItems();
+                totalItems[0] += currentCustomer.getBeginningItems();
             }
         }
         else
@@ -293,7 +293,7 @@ public class Checkout {
                     expressCounters[i].poll();
                     totalCustomers[1+i] += 1;
                     totalTimes[1+i] += currentTime - currentCustomer.getArrivalTime() - currentCustomer.getElapsedProcessTime();
-                    totalItems[1+i] += currentCustomer.getBeginingItems();
+                    totalItems[1+i] += currentCustomer.getBeginningItems();
                 }
             }
             else
@@ -311,7 +311,7 @@ public class Checkout {
                     standardCounters[i].poll();
                     totalCustomers[1+NUM_EXPRESS_COUNTERS+i] += 1;
                     totalTimes[1+NUM_EXPRESS_COUNTERS+i] += currentTime - currentCustomer.getArrivalTime() - currentCustomer.getElapsedProcessTime();
-                    totalItems[1+NUM_EXPRESS_COUNTERS+i] += currentCustomer.getBeginingItems();
+                    totalItems[1+NUM_EXPRESS_COUNTERS+i] += currentCustomer.getBeginningItems();
                 }
             }
             else

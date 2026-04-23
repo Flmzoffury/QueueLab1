@@ -27,6 +27,10 @@ public class Customer
         elapsedProcessTime = 0;
     }
 
+    /**
+     * Get the current value of items
+     * @return items
+     */
     public int getItems()
     {
         return items;
@@ -50,17 +54,29 @@ public class Customer
         return items == 0;
     }
 
+    /**
+     * Gets arrivalTime
+     * @return arrivalTime
+     */
     public int getArrivalTime()
     {
         return arrivalTime;
     }
 
+    /**
+     * Gets elapsedProcessTime
+     * @return elapsedProcessTime
+     */
     public int getElapsedProcessTime()
     {
         return elapsedProcessTime;
     }
 
-    public int getBeginingItems()
+    /**
+     * Gets beginningItems
+     * @return beginningItems
+     */
+    public int getBeginningItems()
     {
         return beginningItems;
     }

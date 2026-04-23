@@ -2,13 +2,19 @@ package ExecutiveQueue;
 
 public class Executive
 {
+    /**
+     * Stores name of the executive to find.
+     */
     String name;
+    /**
+     * Stores the name of the executive's current department
+     */
     String departmentName;
 
     public Executive(String inputName)
     {
         name = inputName;
-        departmentName = "";
+        departmentName = ""; //"" represents the unemployed queue
     }
 
     public String getName()

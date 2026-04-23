@@ -13,6 +13,10 @@ public class InputControl
         textReader = new Scanner(System.in);
     }
 
+    /**
+     * Takes input for a cycle of the simulation, chooses next method
+     * @return
+     */
     public boolean take()
     {
         System.out.println("___________________________________");
@@ -57,6 +61,9 @@ public class InputControl
         return true;
     }
 
+    //Each the options resulting from take()
+
+    //@todo
     private void printHelp()
     {
         System.out.println();
@@ -105,25 +112,6 @@ public class InputControl
         System.out.println("Enter executive's name: ");
         String input = textReader.next();
         System.out.println(business.getSalary(input));
-    }
-
-    public void test()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            business.addDept(new Department("Department#"+i));
-            System.out.println("Added Department#"+i);
-            business.addExec(new Executive("Exec#"+2*i));
-            System.out.println("Added Exec#"+2*i);
-            business.addExec(new Executive("Exec#"+(2*i+1)));
-            System.out.println("Added Exec#"+(2*i+1));
-            business.moveExec("Department#"+i,"Exec#"+2*i);
-            business.moveExec("Department#"+i,"Exec#"+2*i+1);
-        }
-        business.moveExec("", "Executive#5");
-        business.getSalary("Executive#4");
-        business.payroll();
-
     }
 
 }

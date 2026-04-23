@@ -1,5 +1,10 @@
 package ExecutiveQueue;
 
+/**
+ * ArrayList implementation using generics
+ * @param <T>
+ */
+
 public class ArrayList<T>
 {
     T[] collection;
@@ -51,6 +56,11 @@ public class ArrayList<T>
         }
     }
 
+    /**
+     * Uses an int value for the run
+     * @param item the item to search for
+     * @return the index of item if it is in the AL, otherwise returns -1
+     */
     public int find(T item)
     {
         for (int i = 0; i < size; i++)
