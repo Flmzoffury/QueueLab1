@@ -63,10 +63,19 @@ public class InputControl
 
     //Each the options resulting from take()
 
-    //@todo
     private void printHelp()
     {
-        System.out.println();
+        System.out.println("Commands: ");
+        System.out.println("exit: ends the simulation");
+        System.out.println("add: create a new department");
+        System.out.println("hire: hire a new executive");
+        System.out.println("join: move an executive to a department");
+        System.out.println("quit: makes an executive quit a department and become unemployed");
+        System.out.println("change: move an executive to a new department");
+        System.out.println("payroll: prints the salaries of all executives in each department");
+        System.out.println("salary: prints the salary of a specific executive");
+        System.out.println("Each command will prompt you for any additional information it needs");
+
     }
 
     private void add()
