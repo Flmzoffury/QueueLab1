@@ -9,7 +9,7 @@ public class Simulation
         InputControl input = new InputControl();
         Scanner textInput = new Scanner(System.in);
         String currentInput;
-        boolean programActive = true;
+        boolean programActive;
 
         do
         {
